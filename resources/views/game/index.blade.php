@@ -4,7 +4,7 @@
                 @foreach($games as $game)
                         <div class="col-12 col-md-4">
                             <div class="card">
-                                    <img src="/media/playstation.jpg" class="card-img-top" alt="...">
+                                    <img src="{{ Storage::url($game->cover) }}" class="card-img-top" alt="...">
                                     <div class="card-body">
                                             <h5 class="card-title">{{ $game->title }}</h5>
                                             <p class="small fst-italic text-nuted">{{ $game->producer }}</p>

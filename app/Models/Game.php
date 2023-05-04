@@ -14,7 +14,8 @@ class Game extends Model
     protected $fillable = [
         'title',
         'producer',
-        'description'
+        'description',
+        'cover'
     ];
 
 }

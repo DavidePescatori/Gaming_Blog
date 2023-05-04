@@ -12,6 +12,7 @@ class GameController extends Controller
     }
 
     public function store(Request $request){
+        
         // METODO SAVE
         // $game = new Game();
         // $game->title = $request->title;
@@ -26,7 +27,7 @@ class GameController extends Controller
             'title' => $request->title,
             'producer' => $request->producer,
             'description' => $request->description,
-            'truffa' => 'ti ho fregato',
+            'cover' => $request->file('cover')->store('public/covers'),
         ]);
 
 
