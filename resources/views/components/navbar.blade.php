@@ -15,6 +15,9 @@
                 <li class="nav-item">
                 <a class="nav-link" href="{{ route('game.index') }}">Lista videogiochi inseriti</a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ route('console.index') }}">Lista console inserite</a>
+                </li>
 
                 @auth
                     <li class="nav-item dropdown">
