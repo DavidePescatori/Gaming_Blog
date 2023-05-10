@@ -1,4 +1,10 @@
 <x-layout header="Tutte le console inserite">
+
+    @if(session('consoleCreated'))
+        <div class="alert alert-danger">
+            {{ session('consoleCreated') }}
+        </div>
+    @endif
     <div class="container my-5">
         <div class="row justify-content-center">
 

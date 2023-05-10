@@ -23,7 +23,7 @@ class ConsoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('console.create');
     }
 
     /**
@@ -31,7 +31,14 @@ class ConsoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $console = Console::create([
+            'name' => $request->name,
+            'brand' => $request->brand,
+            'description' => $request->description,
+            'logo' => $request->file('logo')->store('public/logos'),
+        ]);
+
+        return redirect(route('console.index'))->with('consoleCreated', 'Hai creato con successo la tua console');
     }
 
     /**

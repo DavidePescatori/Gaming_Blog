@@ -23,3 +23,5 @@ Route::post('/game/store', [GameController::class, 'store'])->name('game.store')
 Route::get('/game/index', [GameController::class, 'index'])->name('game.index');
 
 Route::get('/console/index', [ConsoleController::class, 'index'])->name('console.index');
+Route::get('/console/create', [ConsoleController::class, 'create'])->name('console.create');
+Route::post('/console/store', [ConsoleController::class, 'store'])->name('console.store');
