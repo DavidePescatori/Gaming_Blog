@@ -12,10 +12,12 @@
             @foreach($consoles as $console)
                 <div class="col-12 col-md-4 my-3">
                     <div class="card">
-                        <img src="{{ Storage::url($console->logo) }}" class="card-img-top" alt="...">
+                            <img src="{{ Storage::url($console->logo) }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $console->name }}</h5>
                                 <p class="small fst-italic text-nuted">{{ $console->brand }}</p>
+
+                                <a href="{{ route('console.show', compact('console')) }}" class="btn btn-danger mt-3">Scopri di più</a>
                             </div>
                     </div>
 
@@ -26,7 +28,8 @@
             <div class="col-12">
                 <h2>Non è stata inserita nessuna console. Torna più tardi!</h2>
             </div>
-        @endif    
+        @endif
+
         </div>
     </div>
 

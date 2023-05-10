@@ -8,6 +8,11 @@ use App\Http\Requests\GameRequest;
 
 class GameController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index');
+    }   
+
     public function create(){
         return view('game.create');
     }

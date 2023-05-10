@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class ConsoleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show');
+    }   
     // CRUD
     /**
      * Display a listing of the resource.
@@ -46,7 +50,7 @@ class ConsoleController extends Controller
      */
     public function show(Console $console)
     {
-        //
+        return view('console.show', compact('console'));
     }
 
     /**
