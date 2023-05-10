@@ -27,7 +27,7 @@
                         <input type="checkbox" name="remember" class="form-check-input" id="remember">
                         <label class="form-check-label" for="remember">Ricordami</label>
                     </div>
-                    <button type="submit" class="btn btn-danger">Accedi</button>
+                    <button type="submit" class="btn btn-dark">Accedi</button>
                 </form>
 
             </div>
