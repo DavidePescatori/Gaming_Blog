@@ -39,8 +39,15 @@ class ConsoleController extends Controller
             'name' => $request->name,
             'brand' => $request->brand,
             'description' => $request->description,
-            'logo' => $request->file('logo')->store('public/logos'),
         ]);
+
+        if($request->logo){
+            $console->update([
+                'logo' => $request->file('logo')->store('public/logos'),
+            ]);
+
+        }
+
 
         return redirect(route('console.index'))->with('consoleCreated', 'Hai creato con successo la tua console');
     }
@@ -66,7 +73,22 @@ class ConsoleController extends Controller
      */
     public function update(Request $request, Console $console)
     {
-        //
+        
+            $console->update([
+                'name' => $request->name,
+                'brand' => $request->brand,
+                'description' => $request->description,
+            ]);
+
+            if($request->logo){
+                $console->update([
+                    'logo' => $request->file('logo')->store('public/logos'),
+                ]);
+
+            }
+        
+
+        return redirect(route('console.index'))->with('consoleUpdated', 'Hai correttamente aggiornato la tua console');
     }
 
     /**

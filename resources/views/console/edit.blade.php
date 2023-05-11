@@ -2,7 +2,7 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
-                <form action="" method="POST" class="p-5 shadow" enctype="multipart/form-data">
+                <form action="{{ route('console.update', compact('console')) }}" method="POST" class="p-5 shadow" enctype="multipart/form-data">
 
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -15,6 +15,11 @@
                     @endif
 
                     @csrf
+                    
+                    <!-- override metodo http -->
+                    @method('put')
+
+
                     <div class="mb-3">
                         <label for="name" class="form-label">Nome della console <span class="text-danger small">*</span></label>
                         <input type="text" name="name" class="form-control" id="name" value="{{ $console->name }}">

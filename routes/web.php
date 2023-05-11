@@ -28,3 +28,4 @@ Route::post('/console/store', [ConsoleController::class, 'store'])->name('consol
 Route::get('/console/show/{console}', [ConsoleController::class, 'show'])->name('console.show');
 
 Route::get('/console/edit/{console}', [ConsoleController::class, 'edit'])->name('console.edit');
+Route::put('/console/update/{console}', [ConsoleController::class, 'update'])->name('console.update');
