@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Console;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ConsoleController extends Controller
 {
@@ -39,6 +40,7 @@ class ConsoleController extends Controller
             'name' => $request->name,
             'brand' => $request->brand,
             'description' => $request->description,
+            'user_id' => Auth::user()->id
         ]);
 
         if($request->logo){

@@ -30,14 +30,24 @@
                                 <h5 class="card-title">{{ $console->name }}</h5>
                                 <p class="small fst-italic text-nuted">{{ $console->brand }}</p>
 
+                                
+                                <hr>
+                                <!-- <p class="small">Creato da: {{ $console->user_id ? $console->user->name : 'Utente Guest' }}</p> -->
+                                <p class="small">Creato da: {{ $console->user->name ?? 'Utente Guest' }}</p>
+                                <hr>
+                                
+
                                 <div class="mt-3 d-inline">
                                     <a href="{{ route('console.show', compact('console')) }}" class="btn btn-info mt-3">Scopri di più</a>
-                                    <a href="{{ route('console.edit', compact('console')) }}" class="btn btn-warning mt-3">Modifica</a>
-                                    <form method="POST" action="{{ route('console.destroy', compact('console')) }}">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger">Cancella</button>
-                                    </form>
+
+                                    @if($console->user_id && $console->user->id == Auth::user()->id)
+                                        <a href="{{ route('console.edit', compact('console')) }}" class="btn btn-warning mt-3">Modifica</a>
+                                        <form method="POST" action="{{ route('console.destroy', compact('console')) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-danger">Cancella</button>
+                                        </form>
+                                    @endif
                                 </div>
                             </div>
                     </div>
