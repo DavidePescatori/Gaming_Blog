@@ -96,6 +96,8 @@ class ConsoleController extends Controller
      */
     public function destroy(Console $console)
     {
-        //
+        $console->delete();
+
+        return redirect(route('console.index'))->with('consoleDeleted', 'Hai definitivamente cancellato la tua console');
     }
 }
