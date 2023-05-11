@@ -18,6 +18,7 @@
                                 <p class="small fst-italic text-nuted">{{ $console->brand }}</p>
 
                                 <a href="{{ route('console.show', compact('console')) }}" class="btn btn-danger mt-3">Scopri di più</a>
+                                <a href="{{ route('console.edit', compact('console')) }}" class="btn btn-warning mt-3">Modifica</a>
                             </div>
                     </div>
 
