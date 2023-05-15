@@ -19,4 +19,10 @@ class Game extends Model
         'cover',
     ];
 
+    // un gioco può girare su più consoles
+    public function consoles(){
+
+        return $this->belongsToMany(Console::class);
+    }
+
 }

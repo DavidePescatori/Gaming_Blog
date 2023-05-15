@@ -20,6 +20,7 @@ use App\Http\Controllers\ConsoleController;
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
 Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
+Route::delete('/profile/destroy', [UserController::class, 'destroy'])->name('user.destroy');
 
 Route::get('/game/create', [GameController::class, 'create'])->name('game.create');
 Route::post('/game/store', [GameController::class, 'store'])->name('game.store');

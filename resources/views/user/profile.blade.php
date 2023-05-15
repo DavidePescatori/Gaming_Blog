@@ -1,5 +1,24 @@
 <x-layout header="Profilo utente">
 
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">I tuoi dati</h5>
+                    <p class="card-text">Nome utente: {{ Auth::user()->name }}</p>
+                    <p class="card-text">Email utente: {{ Auth::user()->email }}</p>
+                    <p class="card-text">Iscritto il: {{ Auth::user()->created_at }}</p>
+
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#userDestroy">
+                        Elimina la tua iscrizione
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
     
     <div class="container my-5">
         <div class="row justify-content-center">
@@ -39,5 +58,28 @@
             @endforeach
         </div>
     </div>
+
+        <div class="modal" tabindex="-1" id="userDestroy">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Sei veramente convinto di volerti cancellare?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>L'operazione comporterà la cancellazione definitiva</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <form method="POST" action="{{ route('user.destroy') }}" class="d-inline">
+                            @csrf
+                            @method('delete')
+
+                            <button type="submit" class="btn btn-danger">Elimina la tua iscrizione</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 </x-layout>
