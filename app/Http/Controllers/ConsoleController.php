@@ -105,8 +105,23 @@ class ConsoleController extends Controller
      */
     public function destroy(Console $console)
     {
+
+        // @foreach($console->games as $game){
+        //     $console->games()->detach($game->id);
+        // }
+
+        // cancelliamo i record della tabella
+        $console->games()->detach($console->games);
+        
+        // cancella la console definitivamente
         $console->delete();
 
         return redirect(route('console.index'))->with('consoleDeleted', 'Hai definitivamente cancellato la tua console');
+    }
+
+    public function detach(Console $console, Game $game){
+        $console->games()->detach($game);
+
+        return redirect()->back()->with('gameDetached', 'Hai cancellato una relazione');
     }
 }

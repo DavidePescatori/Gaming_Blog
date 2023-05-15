@@ -34,3 +34,4 @@ Route::get('/console/show/{console}', [ConsoleController::class, 'show'])->name(
 Route::get('/console/edit/{console}', [ConsoleController::class, 'edit'])->name('console.edit');
 Route::put('/console/update/{console}', [ConsoleController::class, 'update'])->name('console.update');
 Route::delete('/console/destroy/{console}', [ConsoleController::class, 'destroy'])->name('console.destroy');
+Route::get('/console/{console}/detach/{game}', [ConsoleController::class, 'detach'])->name('console.detach');

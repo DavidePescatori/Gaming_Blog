@@ -42,6 +42,29 @@
                     </div>
 
                     <div class="mb-3">
+                        @if(session('gameDetached'))
+                            <div class="alert alert-success">
+                                {{ session('gameDetached') }}
+                            </div>
+                        @endif
+                        <label for="" class="form-label">Giochi live <span class="text-danger small">*</span></label><br>
+                        
+
+                        <ul>
+                            @foreach($console->games as $game)
+                                <li>{{ $game->title}}, prodotto da {{ $game->producer }}
+                                    <a href="{{ route('console.detach', compact('console', 'game')) }}" class="btn" title="Cancella relazione">
+                                        <i class="fs-3 fa-solid fa-square-xmark text-danger"></i>
+                                    </a>
+                                </li>
+                            @endforeach
+
+                        </ul>
+                        
+                       
+                    </div>
+
+                    <div class="mb-3">
                         <label for="" class="form-label">Giochi disponibili <span class="text-danger small">*</span></label>
                         <br>
                         
