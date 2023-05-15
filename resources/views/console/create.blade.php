@@ -31,6 +31,16 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="" class="form-label">Giochi disponibili <span class="text-danger small">*</span></label>
+                        <br>
+                        
+                        @foreach($games as $game)
+                            <input type="checkbox" id="{{ $game->id }}" name="games[]" value="{{ $game->id }}">
+                            <label class="form-label" for="{{ $game->id }}">{{ $game->title }}</label><br>
+                        @endforeach
+                    </div>
+
+                    <div class="mb-3">
                         <label for="description" class="form-label">Cenni storici <span class="text-danger small">*</span></label>
                         <textarea name="description" id="description" cols="30" rows="7" class="form-control">{{ old('description') }}</textarea>
                     </div>

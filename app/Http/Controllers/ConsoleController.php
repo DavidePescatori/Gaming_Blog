@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
 use App\Models\Console;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +29,8 @@ class ConsoleController extends Controller
      */
     public function create()
     {
-        return view('console.create');
+        $games = Game::all();
+        return view('console.create', compact('games'));
     }
 
     /**
@@ -49,6 +51,8 @@ class ConsoleController extends Controller
             ]);
 
         }
+        
+        $console->games()->attach($request->games);
 
 
         return redirect(route('console.index'))->with('consoleCreated', 'Hai creato con successo la tua console');
@@ -67,7 +71,8 @@ class ConsoleController extends Controller
      */
     public function edit(Console $console)
     {
-        return view('console.edit', compact('console'));
+        $games = Game::all();
+        return view('console.edit', compact('console', 'games'));
     }
 
     /**
@@ -88,6 +93,8 @@ class ConsoleController extends Controller
                 ]);
 
             }
+
+        $console->games()->attach($request->games);    
         
 
         return redirect(route('console.index'))->with('consoleUpdated', 'Hai correttamente aggiornato la tua console');
